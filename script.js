@@ -1,6 +1,6 @@
 const btnEl = document.getElementById('btn');
 
-textos = [
+let textos = [
     "Meu amor, eu preciso te falar uma coisa",
     "Hoje, dia 21/07/21, completamos 5 meses",
     "Ou 23 semanas (mais ou menos)",
@@ -69,30 +69,28 @@ function updateText(index) {
     textoEl.innerText= textos[index]
 }
 
-// function updateBgColor() {
-//     function makeRandomColor(){
-//         var c = '';
-//         while (c.length < 7) {
-//           c += (Math.random()).toString(16).substr(-6).substr(-1)
-//         }
-//         return '#' + c;
-//       }
-//     let randomColor = makeRandomColor();
-//     document.body.style.backgroundColor = randomColor;
-// }
+function updateBgColor(index) {
+    let rateOfChange = 263 - 8*index;
+    document.body.style.backgroundColor = `hsl(${ rateOfChange }, 75%, 25%)`
+    let rateOfChange2 = rateOfChange+60;
+    document.body.style.backgroundImage = `linear-gradient(316deg, hsl(${ rateOfChange }, 75%, 25%) 0%, hsl(${ rateOfChange2 }, 75%, 25%) 74%)`
+}
 
-// function updateEggColor(){
-//     let egg = btnEl;
+function updateEggColor(index){
+    let rateOfChange = 317 + 20*index;
+    btnEl.style.backgroundColor = `hsl(${ rateOfChange }, 75%, 90%)`
+    let rateOfChange2 = rateOfChange+60;
+    btnEl.style.backgroundImage = `linear-gradient(316deg, hsl(${ rateOfChange }, 75%, 90%) 0%, hsl(${ rateOfChange2 }, 75%, 90%) 74%)`
 
-// }
+}
 
 let i = 0
 
 btnEl.addEventListener('click', () => {
     const textoEl = document.querySelector('h1');
     i++;
-    //updateBgColor();
-    //updateEggColor();
+    updateBgColor(i);
+    updateEggColor(i);
     clearText(textoEl);
     updateText(i);
 })
