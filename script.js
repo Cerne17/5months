@@ -1,5 +1,4 @@
 const btnEl = document.getElementById('btn');
-
 let textos = [
     "Meu amor, eu preciso te falar uma coisa",
     "Hoje, dia 21/07/21, completamos 5 meses",
@@ -58,34 +57,35 @@ let textos = [
     "Espero q vc tenha gostado e n parado no meio",
     "n ta do jeitinho q eu queria, mas vou melhorando com o tempo 😉"
 ]
-
 function clearText(){
     const textoEl = document.querySelector('h1');
     textoEl.innerText= ''
 }
-
 function updateText(index) {
     const textoEl = document.querySelector('h1');
+    const textosTamanho = textos.length
+    console.log(`tamanho texto: ${textosTamanho}`)
+    console.log(`indice normal: ${index}`)
+    if (index > textosTamanho){
+        index = index%textosTamanho;
+        textoEl.innerText= textos[index]
+        console.log(`indice if ${index}`)
+    }
     textoEl.innerText= textos[index]
 }
-
 function updateBgColor(index) {
     let rateOfChange = 263 - 8*index;
     document.body.style.backgroundColor = `hsl(${ rateOfChange }, 75%, 25%)`
     let rateOfChange2 = rateOfChange+60;
     document.body.style.backgroundImage = `linear-gradient(316deg, hsl(${ rateOfChange }, 75%, 25%) 0%, hsl(${ rateOfChange2 }, 75%, 25%) 74%)`
 }
-
 function updateEggColor(index){
     let rateOfChange = 317 + 20*index;
     btnEl.style.backgroundColor = `hsl(${ rateOfChange }, 75%, 90%)`
     let rateOfChange2 = rateOfChange+60;
     btnEl.style.backgroundImage = `linear-gradient(316deg, hsl(${ rateOfChange }, 75%, 90%) 0%, hsl(${ rateOfChange2 }, 75%, 90%) 74%)`
-
 }
-
 let i = 0
-
 btnEl.addEventListener('click', () => {
     const textoEl = document.querySelector('h1');
     i++;
