@@ -12,6 +12,21 @@ body{
     display: flex;
     flex-direction: column;
 }
+h1{
+    font-size: 2.5rem;
+    position: relative;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    margin: 1rem;
+    /* max-width: 90%; */
+    text-align: center;
+}
+h2{
+    font-size: 2rem;
+    position: relative;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    /* max-width: 80%; */
+    text-align: center;
+}
 .max-container {
     display: flex;
     justify-content: space-between;
@@ -29,21 +44,6 @@ body{
     justify-content: center;
     align-items: center;
     max-width: 90%;
-}
-h1{
-    font-size: 2.5rem;
-    position: relative;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    margin: 1rem;
-    /* max-width: 90%; */
-    text-align: center;
-}
-h2{
-    font-size: 2rem;
-    position: relative;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    /* max-width: 80%; */
-    text-align: center;
 }
 .input-container{
     display: flex;
@@ -81,4 +81,69 @@ h2{
 }
 .submit:hover{
     background: rgb(61, 27, 94);
+}
+@media (min-width: 301px) and (max-width: 599px){
+    h1{
+        visibility:hidden;
+    }
+    h2{
+        font-size: 1rem;
+    }
+    .input-container{
+        flex-direction: column;
+    }
+    .password {
+        width: 250px;
+        border-radius: 5px 5px 0px 0px;
+        margin: 0.2rem 0.5rem;
+        margin-bottom: 0;
+    }
+    .submit{
+        width:250px;
+        margin: 0.2rem 0.5rem;
+        margin-top: 0;
+        border-radius: 0px 0px 5px 5px;
+    }
+}
+@media (max-width: 300px){
+    h1{
+        visibility:hidden;
+    }
+    h2{
+        font-size: 1rem;
+    }
+    .input-container{
+        flex-direction: column;
+    }
+    .password {
+        width: 200px;
+        border-radius: 5px 5px 0px 0px;
+        margin: 0.1rem 0.3rem;
+        margin-bottom: 0;
+    }
+    .submit{
+        width:200px;
+        margin: 0.1rem 0.3rem;
+        margin-top: 0;
+        border-radius: 0px 0px 5px 5px;
+    }
+    .input-container{
+        margin: 0;
+    }
+}
+@media (min-width: 600px) and (max-width: 1000px){
+    h1{
+        visibility:hidden;
+    }
+    .password{
+        width: 350px;
+    }
+}
+@media (min-width: 1001px) and (max-width: 1399px){
+    h1{
+        font-size: 2rem;
+    }
+    .password{
+        width: 500px;
+    }
 }
