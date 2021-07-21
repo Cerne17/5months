@@ -57,19 +57,12 @@ let textos = [
     "Espero q vc tenha gostado e n parado no meio",
     "n ta do jeitinho q eu queria, mas vou melhorando com o tempo 😉"
 ]
-function clearText(){
-    const textoEl = document.querySelector('h1');
-    textoEl.innerText= ''
-}
 function updateText(index) {
     const textoEl = document.querySelector('h1');
     const textosTamanho = textos.length
-    console.log(`tamanho texto: ${textosTamanho}`)
-    console.log(`indice normal: ${index}`)
     if (index > textosTamanho){
         index = index%textosTamanho;
         textoEl.innerText= textos[index]
-        console.log(`indice if ${index}`)
     }
     textoEl.innerText= textos[index]
 }
@@ -85,12 +78,30 @@ function updateEggColor(index){
     let rateOfChange2 = rateOfChange+60;
     btnEl.style.backgroundImage = `linear-gradient(316deg, hsl(${ rateOfChange }, 75%, 90%) 0%, hsl(${ rateOfChange2 }, 75%, 90%) 74%)`
 }
-let i = 0
+function pageRedirect(page){
+    location.replace(`${ page }`)
+}
+function easterEgg(){
+    var easterEggBtn = document.createElement("button");
+    easterEggBtn.id='easterEggBtn';
+    easterEggBtn.classList.add('easterEggBtn');
+    easterEggBtn.classList.add('active');
+    document.body.appendChild(easterEggBtn);
+    easterEggBtn.addEventListener('click', () => {
+        pageRedirect('easterEgg.html')
+    });
+}
+let i = 0;
 btnEl.addEventListener('click', () => {
-    const textoEl = document.querySelector('h1');
+    updateText(i);
+    if (i == 15){
+        easterEgg();
+    }
+    if (i>15){
+        var easterEggBtn = document.querySelector('#easterEggBtn');
+        easterEggBtn.classList.remove('active');
+    }
     i++;
     updateBgColor(i);
     updateEggColor(i);
-    clearText(textoEl);
-    updateText(i);
 })
