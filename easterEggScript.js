@@ -12,3 +12,24 @@ setInterval(()=>{
 
 const submitBtnEl = document.querySelector("#submit");
 const passwordBoxEl = document.querySelector("#password");
+const passwordCheckText = document.querySelector('#passwordCheck');
+
+function redirectPage(page){
+    location.replace(`${ page }`)
+}
+
+passwordBoxEl.addEventListener('focus', ()=>{
+    passwordCheckText.classList.remove('error');
+})
+
+submitBtnEl.addEventListener('click', ()=>{
+    console.log('ok!');
+
+    if (passwordBoxEl.value === '290121'){
+        redirectPage('hornyDate.html');
+    }else if (passwordBoxEl.value === 'I miss you'){
+        redirectPage('romanticDate.html');
+    }else{
+        passwordCheckText.classList.add('error');
+    }
+})
